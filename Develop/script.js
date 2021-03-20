@@ -11,14 +11,10 @@ const test = document.querySelector(".text9");
 const button = document.querySelector(".save9");
 const storedInput = localStorage.getItem("textinput");
 
-// var tenAm = moment().format("10:00a");
 var nineAm = "09:00";
 var tenAm = "10:00";
-// var nineAm = moment("09:00am", "h:mma");
-// var tenAm = moment("10:00am", "h:mma");
 var elevenAm = "11:00";
 var twelvePm = "12:50";
-// var onePm = moment().format("1:00p");
 var onePm = "13:00";
 var twoPm = "14:00";
 var threePm = "15:00";
@@ -74,21 +70,22 @@ checkPresentTime();
 function checkPresentTime() {
   var b = 1;
   var id = 9;
+  var timeArrayb = [
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+  ];
+
   for (let a = 0; a < timeArray.length; a++) {
-    console.log("start for time-----");
-    console.log(convertedHourMin);
-    console.log("Present Test-----");
-    console.log(timeArray[a]);
-    console.log(timeArray[b]);
-    console.log("----END--Present Test-----");
-    if (convertedHourMin > timeArray[a] && convertedHourMin < timeArray[b]) {
-      console.log("-----in if----------");
-      console.log(timeArray[a]);
-      console.log(timeArray[b]);
-      console.log("------end if---------");
+    if (convertedHourMin > timeArray[a] && convertedHourMin < timeArrayb[b]) {
       var storeID = document.getElementById(id);
-      console.log("P store loop");
-      console.log(storeID);
       storeID.classList.remove("future");
       storeID.classList.remove("past");
       storeID.classList.add("present");
@@ -131,24 +128,35 @@ const listChildren = parentList.children;
 
 console.log(listChildren[1]);
 
+var storageArray = [
+  "storage1",
+  "storage2",
+  "storage3",
+  "storage4",
+  "storage5",
+  "storage6",
+  "storage7",
+  "storage8",
+  "storage9",
+];
+
 storeInput.addEventListener("input", (letter) => {
   console.log(letter.target.value);
   test.textContent = letter.target.value;
 });
 
 const saveToLocalStorage = () => {
-  var value = currentNode.nextElementsibling;
-  var time = localStorage.setItem("textinput", test.textContent);
-
-  console.log(value);
-  console.log(time);
+  localStorage.setItem("textinput", test.textContent);
 };
+//-----
+
+// if (storeInput) {
+//   test.textContent = storedInput;
+// }
+
+test.textContent = storedInput;
 
 button.addEventListener("click", saveToLocalStorage);
-
-if (storeInput) {
-  test.textContent = storedInput;
-}
 
 // Remove data from local storage
 // localStorage.removeItem("textinput");
