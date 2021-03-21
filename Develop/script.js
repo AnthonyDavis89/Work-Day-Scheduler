@@ -1,37 +1,55 @@
-// console.log(moment().format("dddd, MMMM Do"));
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.getElementById("9").innerHTML = localStorage.getItem("textInput9AM");
+  document.getElementById("10").innerHTML = localStorage.getItem(
+    "textInput10AM"
+  );
 
-// const hourMin = moment().format("LT");
-// const time = moment().format("dddd, MMMM Do");
+  document.getElementById("11").innerHTML = localStorage.getItem(
+    "textInput11AM"
+  );
+
+  document.getElementById("12").innerHTML = localStorage.getItem(
+    "textInput12PM"
+  );
+
+  document.getElementById("13").innerHTML = localStorage.getItem(
+    "textInput13PM"
+  );
+
+  document.getElementById("14").innerHTML = localStorage.getItem(
+    "textInput14PM"
+  );
+
+  document.getElementById("15").innerHTML = localStorage.getItem(
+    "textInput15PM"
+  );
+
+  document.getElementById("16").innerHTML = localStorage.getItem(
+    "textInput16PM"
+  );
+
+  document.getElementById("17").innerHTML = localStorage.getItem(
+    "textInput17PM"
+  );
+});
 const time = moment().format("MMMM Do YYYY, h:mm a");
 const placeTime = document.getElementById("currentDay");
 placeTime.innerText = time;
 var hourMin = moment().format("hh:mm a");
 const storeInput = document.querySelector(".storage");
-const test = document.querySelector(".text9");
-const button = document.querySelector(".save9");
+// const test = document.querySelector(".text9");
+const button = document.getElementById("saveButton");
 const storedInput = localStorage.getItem("textinput");
 
 var nineAm = "09:00";
 var tenAm = "10:00";
 var elevenAm = "11:00";
-var twelvePm = "12:50";
+var twelvePm = "12:00";
 var onePm = "13:00";
 var twoPm = "14:00";
 var threePm = "15:00";
 var fourPm = "16:00";
 var fivePm = "17:00";
-
-// console.log(hourMin);
-
-// ----Dont delete yet ------------------
-// function convert(input) {
-//   return moment(input, "HH:mm").format("h:mm a");
-// }
-
-// console.log(convert("20:00"));
-// console.log(convert("08:00"));
-// console.log(convert("16:30"));
-//----------------------------------------
 
 function convert(input) {
   return moment(input, "h:mm a").format("HH:mm");
@@ -52,17 +70,6 @@ var timeArray = [
   fivePm,
 ];
 
-// var TimeID = [9, 10, 11, 12, 1, 2, 3, 4, 5];
-
-//Check current time
-// if (convertedHourMin <= "08:00") {
-//   var storeID = document.getElementById("9");
-//   storeID.classList.remove("past");
-//   storeID.classList.add("future");
-// } else {
-//   timeBlockColor();
-// }
-
 hasDaychanged();
 checkPresentTime();
 
@@ -82,7 +89,6 @@ function checkPresentTime() {
     "17:00",
     "18:00",
   ];
-
   for (let a = 0; a < timeArray.length; a++) {
     if (convertedHourMin > timeArray[a] && convertedHourMin < timeArrayb[b]) {
       var storeID = document.getElementById(id);
@@ -103,6 +109,7 @@ function hasDaychanged() {
       const storeID = document.getElementById(id);
       storeID.classList.remove("past");
       storeID.classList.add("future");
+      //   localStorage.removeItem("textinput");
       id++;
     } else {
       timeBlockColor();
@@ -123,40 +130,38 @@ function timeBlockColor() {
   }
 }
 
-const parentList = document.getElementById("52");
-const listChildren = parentList.children;
-
-console.log(listChildren[1]);
-
-var storageArray = [
-  "storage1",
-  "storage2",
-  "storage3",
-  "storage4",
-  "storage5",
-  "storage6",
-  "storage7",
-  "storage8",
-  "storage9",
-];
-
 storeInput.addEventListener("input", (letter) => {
   console.log(letter.target.value);
   test.textContent = letter.target.value;
 });
 
 const saveToLocalStorage = () => {
-  localStorage.setItem("textinput", test.textContent);
+  var value9 = document.getElementById("9").value;
+  var time9 = localStorage.setItem("textInput9AM", value9);
+  var value10 = document.getElementById("10").value;
+  var time10 = localStorage.setItem("textInput10AM", value10);
+  var value11 = document.getElementById("11").value;
+  var time11 = localStorage.setItem("textInput11AM", value11);
+
+  var value12 = document.getElementById("12").value;
+  var time12 = localStorage.setItem("textInput12PM", value12);
+
+  var value13 = document.getElementById("13").value;
+  var time13 = localStorage.setItem("textInput13PM", value13);
+
+  var value14 = document.getElementById("14").value;
+  var time14 = localStorage.setItem("textInput14PM", value14);
+
+  var value15 = document.getElementById("15").value;
+  var time15 = localStorage.setItem("textInput15PM", value15);
+
+  var value16 = document.getElementById("16").value;
+  var time16 = localStorage.setItem("textInput16PM", value16);
+
+  var value17 = document.getElementById("17").value;
+  var time17 = localStorage.setItem("textInput17PM", value17);
 };
-//-----
 
-// if (storeInput) {
-//   test.textContent = storedInput;
-// }
-
-test.textContent = storedInput;
-
-button.addEventListener("click", saveToLocalStorage);
-
-// Remove data from local storage
-// localStorage.removeItem("textinput");
+if (storeInput) {
+  test.textContent = storedInput;
+}
