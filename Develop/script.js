@@ -37,7 +37,6 @@ const placeTime = document.getElementById("currentDay");
 placeTime.innerText = time;
 var hourMin = moment().format("hh:mm a");
 const storeInput = document.querySelector(".storage");
-// const test = document.querySelector(".text9");
 const button = document.getElementById("saveButton");
 const storedInput = localStorage.getItem("textinput");
 
@@ -137,29 +136,29 @@ storeInput.addEventListener("input", (letter) => {
 
 const saveToLocalStorage = () => {
   var value9 = document.getElementById("9").value;
-  var time9 = localStorage.setItem("textInput9AM", value9);
+  localStorage.setItem("textInput9AM", value9);
   var value10 = document.getElementById("10").value;
-  var time10 = localStorage.setItem("textInput10AM", value10);
+  localStorage.setItem("textInput10AM", value10);
   var value11 = document.getElementById("11").value;
-  var time11 = localStorage.setItem("textInput11AM", value11);
+  localStorage.setItem("textInput11AM", value11);
 
   var value12 = document.getElementById("12").value;
-  var time12 = localStorage.setItem("textInput12PM", value12);
+  localStorage.setItem("textInput12PM", value12);
 
   var value13 = document.getElementById("13").value;
-  var time13 = localStorage.setItem("textInput13PM", value13);
+  localStorage.setItem("textInput13PM", value13);
 
   var value14 = document.getElementById("14").value;
-  var time14 = localStorage.setItem("textInput14PM", value14);
+  localStorage.setItem("textInput14PM", value14);
 
   var value15 = document.getElementById("15").value;
-  var time15 = localStorage.setItem("textInput15PM", value15);
+  localStorage.setItem("textInput15PM", value15);
 
   var value16 = document.getElementById("16").value;
-  var time16 = localStorage.setItem("textInput16PM", value16);
+  localStorage.setItem("textInput16PM", value16);
 
   var value17 = document.getElementById("17").value;
-  var time17 = localStorage.setItem("textInput17PM", value17);
+  localStorage.setItem("textInput17PM", value17);
 };
 
 if (storeInput) {
